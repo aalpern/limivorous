@@ -120,5 +120,10 @@ module.exports =
       return self
     }
 
+    /**
+     * An alias for defineProperty.
+     */
+    self.property = self.defineProperty
+
     return self
   })();
