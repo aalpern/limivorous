@@ -1,4 +1,10 @@
-module.exports =
+/*!
+ * Limivorous - Copyright Adam Alpern 2014
+ * https://github.com/aalpern/limivorous
+ * MIT license
+ */
+
+var limivorous =
   (function() {
     "use strict";
 
@@ -127,3 +133,7 @@ module.exports =
 
     return self
   })();
+
+if (module) {
+  module.exports = limivorous
+}
