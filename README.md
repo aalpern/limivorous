@@ -23,6 +23,7 @@ with the Javascript module pattern. The main requirements are:
   templating engines such as [handlebars](http://handlebarsjs.com/).
 * Support a method chaining style or setting properties in addition to
   regular assignment.
+* Don't require a browser
 
 ### Example
 
@@ -36,9 +37,9 @@ Tag = function(data) {
     , self = {}
 
   limivorous.observable(self)
-            .defineProperty(self, 'id', storage)
-            .defineProperty(self, 'name', storage)
-            .defineProperty(self, 'color', storage)
+            .property(self, 'id', storage)
+            .property(self, 'name', storage)
+            .property(self, 'color', storage)
 
 }
 
@@ -47,3 +48,9 @@ t.on('change:name', function(e) {
   console.log('Name changed from ' + e.previous + ' to ' + e.value)
 })
 ```
+
+## Licence & copyright
+
+Limivorous is copyright &copy; 2014 Adam Alpern and licenced under the
+MIT licence. All rights not explicitly granted in the MIT license are
+reserved. See the included LICENSE file for more details.
