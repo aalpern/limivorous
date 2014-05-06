@@ -20,7 +20,7 @@ limivorous is intended to work with simple data model objects built
 with the Javascript module pattern. The main requirements are:
 
 * Support standard property get syntax, for compatibility with
-  templating engines just as [handlebars](http://handlebarsjs.com/).
+  templating engines such as [handlebars](http://handlebarsjs.com/).
 * Support a method chaining style or setting properties in addition to
   regular assignment.
 
