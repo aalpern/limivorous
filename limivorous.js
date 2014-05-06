@@ -10,6 +10,8 @@ var limivorous =
 
     var self = {}
 
+    self.CHANGE_EVENT = 'change'
+
     /**
      * Define the core properties and methods to make target an
      * observable data model object.
@@ -111,8 +113,8 @@ var limivorous =
           previous: context[name]
         }
         context[name] = value
-        context.notifyObservers('change:' + name, event)
-        context.notifyObservers('change', event)
+        context.notifyObservers(self.CHANGE_EVENT + ':' + name, event)
+        context.notifyObservers(self.CHANGE_EVENT, event)
         return target
       }
 
