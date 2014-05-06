@@ -24,7 +24,7 @@ with the Javascript module pattern. The main requirements are:
 * Support a method chaining style or setting properties in addition to
   regular assignment.
 
-## Example
+### Example
 
 ```javascript
 var limivorous = require('limivorous')
@@ -41,4 +41,9 @@ Tag = function(data) {
             .defineProperty(self, 'color', storage)
 
 }
+
+t = Tag()
+t.on('change:name', function(e) {
+  console.log('Name changed from ' + e.previous + ' to ' + e.value)
+})
 ```
