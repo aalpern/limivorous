@@ -41,6 +41,7 @@ Tag = function(data) {
             .property('name')
             .property('color', { init: 'red' } )
 
+  return self
 }
 
 t = Tag()
