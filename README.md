@@ -37,9 +37,9 @@ Tag = function(data) {
     , self = {}
 
   limivorous.observable(self)
-            .property(self, 'id', storage)
-            .property(self, 'name', storage)
-            .property(self, 'color', storage)
+            .property('id')
+            .property('name')
+            .property('color', { init: 'red' } )
 
 }
 
