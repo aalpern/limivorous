@@ -34,12 +34,11 @@ Tag = function(data) {
   "use strict";
 
   var storage = {}
-    , self = {}
-
-  limivorous.observable(self)
-            .property('id')
-            .property('name')
-            .property('color', { init: 'red' } )
+    , self = limivorous.observable()
+                       .property('id')
+                       .property('name')
+                       .property('color', { init: 'red' } )
+                       .build()
 
   return self
 }
