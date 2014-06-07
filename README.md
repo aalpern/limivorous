@@ -33,12 +33,13 @@ var limivorous = require('limivorous')
 Tag = function(data) {
   "use strict";
 
-  var storage = {}
-    , self = limivorous.observable()
+  var self = limivorous.observable()
                        .property('id')
                        .property('name')
                        .property('color', { init: 'red' } )
                        .build()
+
+  /** Add any functions or other private storage */
 
   return self
 }
