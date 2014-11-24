@@ -46,7 +46,7 @@ var limivorous =
       context.notifyObservers = function(event, data) {
         var observers = observer_registry[event]
         if (observers) {
-          for (var i in observers) {
+          for (var i = 0; i < observers.length; i++) {
             observers[i](data)
           }
         }
@@ -76,6 +76,15 @@ var limivorous =
           observer_registry[event] = observers = []
         }
         observers.push(observer)
+        return target
+      }
+
+      /**
+       * Force the notification of observers on a property, using its
+       * current value.
+       */
+      target.notify = function(propertyName) {
+        target[propertyName] = target[propertyName]
         return target
       }
 
@@ -169,7 +178,7 @@ var limivorous =
           }
           context[name] = value
           if (options.update && (options.update instanceof Function)) {
-            options.update()
+            options.update(target)
           }
           context.notifyObservers(self.CHANGE_EVENT + ':' + name, event)
           context.notifyObservers(self.CHANGE_EVENT, event)
@@ -218,8 +227,8 @@ var limivorous =
        * Extend the model object with properties defined by another
        * model.
        *
-       * @param model {Object} A model module which with a 'extender'
-       *      property. The extender proprty must be a function which
+       * @param model {Object} A model module which with a 'extend'
+       *      property. The extend property must be a function which
        *      accepts a builder and defines additional properties.
        */
       builder.extend = function(model, options) {
@@ -234,7 +243,3 @@ var limivorous =
 
     return self
   })()
-
-if (typeof(module) !== 'undefined' && module) {
-  module.exports = limivorous
-}
